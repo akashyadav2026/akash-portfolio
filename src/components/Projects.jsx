@@ -1,10 +1,25 @@
 import { useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiGithub } from 'react-icons/fi'
+import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import './Projects.css'
 
 const projects = [
+  {
+    title: 'Scorewala',
+    desc: 'Real-time sports and live scoring application with instant match updates, dynamic scoreboards, and responsive design.',
+    image: null,
+    placeholderColor: 'violet',
+    snippet: { key: '"app"', val: '"scorewala"', status: '"live"' },
+    chips: [
+      { label: 'Web App',  color: 'sky'    },
+      { label: 'Live Data',color: 'orange' },
+      { label: 'Responsive',color: ''      },
+    ],
+    github: 'https://github.com/akashyadav2026?tab=repositories',
+    demo: 'https://scorewala.vercel.app/',
+    featured: true,
+  },
   {
     title: 'Spring Boot REST API',
     desc: 'A full-featured RESTful API backend with JWT authentication, CRUD operations, pagination, and MySQL. Follows clean architecture principles with proper DTO patterns.',
@@ -115,12 +130,13 @@ const ProjectCard = ({ project, index, inView }) => {
               transition={{ duration: 0.18 }}
             >
               <a
-                href={project.github}
+                href={project.demo || project.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="project-card__overlay-btn"
               >
-                <FiGithub size={16} /> View Code
+                {project.demo ? <FiExternalLink size={16} /> : <FiGithub size={16} />} 
+                {project.demo ? ' Visit Site' : ' View Code'}
               </a>
             </motion.div>
           )}
@@ -139,6 +155,16 @@ const ProjectCard = ({ project, index, inView }) => {
         </div>
 
         <div className="project-card__footer">
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card__link"
+            >
+              <FiExternalLink size={14} /> Live Demo
+            </a>
+          )}
           <a
             href={project.github}
             target="_blank"

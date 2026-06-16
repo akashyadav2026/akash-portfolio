@@ -1,0 +1,230 @@
+/* ===== EXPERIENCE ===== */
+.exp {}
+
+.exp__header {
+  margin-bottom: 3.5rem;
+}
+
+/* ─── TIMELINE ─── */
+.exp__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.exp__timeline::before {
+  content: '';
+  position: absolute;
+  left: calc(168px + 2.5rem + 6px); /* Centers line under the 14px dot */
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent) 10%, var(--border) 90%, transparent);
+}
+
+/* ─── ITEM ─── */
+.exp__item {
+  display: grid;
+  grid-template-columns: 168px auto 1fr;
+  gap: 0 2.5rem;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.exp__item:last-child { padding-bottom: 0; }
+
+/* Date column */
+.exp__date {
+  text-align: right;
+  padding-top: 0.2rem;
+}
+
+.exp__date-range {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: var(--font-display);
+  white-space: nowrap;
+}
+
+.exp__date-company {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  margin-top: 0.2rem;
+  white-space: nowrap;
+}
+
+/* Node */
+.exp__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.exp__dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--accent), 0 0 12px rgba(110,231,183,0.4);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.exp__dot--sub {
+  width: 10px; height: 10px;
+  background: var(--border);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+/* Content column */
+.exp__content {}
+
+.exp__role-header {
+  margin-bottom: 0.6rem;
+}
+
+.exp__role-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-1);
+  line-height: 1.2;
+}
+
+.exp__role-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  margin-top: 0.25rem;
+}
+
+.exp__role-company span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Project block */
+.exp__project {
+  margin-top: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.exp__project:hover {
+  border-color: rgba(110,231,183,0.2);
+}
+
+.exp__project-name {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.exp__project-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+}
+
+.exp__project-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.exp__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  list-style: none;
+  padding: 0;
+}
+
+.exp__bullet {
+  position: relative;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.exp__bullet::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.exp__bullet strong {
+  color: var(--text-1);
+  font-weight: 600;
+}
+
+/* ─── EDUCATION BLOCK ─── */
+.exp__edu {
+  margin-top: 3rem;
+  padding: 1.8rem 2rem;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.exp__edu-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.exp__edu-body {}
+
+.exp__edu-degree {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+}
+
+.exp__edu-school {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  margin-top: 0.2rem;
+}
+
+.exp__edu-year {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 860px) {
+  .exp__timeline::before { left: 6px; }
+  .exp__item {
+    grid-template-columns: auto 1fr;
+    gap: 0 1.5rem;
+  }
+  .exp__date { display: none; }
+}
+
+@media (max-width: 560px) {
+  .exp__item { grid-template-columns: auto 1fr; gap: 0 1rem; }
+  .exp__project { padding: 1.1rem 1.2rem; }
+}

@@ -1,0 +1,208 @@
+/* ===== LOADER ===== */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.loader-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(110,231,183,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(167,139,250,0.06) 0%, transparent 55%);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.loader-mesh {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 100%);
+}
+
+.loader-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* Ring system */
+.loader-ring-outer {
+  position: relative;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  border: 1px solid rgba(110,231,183,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin-slow 5s linear infinite;
+}
+
+.loader-ring-outer::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--accent);
+  border-right-color: rgba(110,231,183,0.4);
+  animation: spin-slow 1.4s linear infinite;
+}
+
+.loader-ring-middle {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  border: 1px solid rgba(167,139,250,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin-slow 3.5s linear infinite reverse;
+}
+
+.loader-ring-inner {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(110,231,183,0.12) 0%, rgba(167,139,250,0.08) 100%);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.loader-initials {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: spin-slow 5s linear infinite reverse;
+}
+
+/* Orbiting dot */
+.loader-orbit {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 120px; height: 120px;
+  animation: spin-slow 2.2s linear infinite;
+  pointer-events: none;
+}
+
+.loader-orbit-dot {
+  position: absolute;
+  top: -4px; left: 50%;
+  transform: translateX(-50%);
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent), 0 0 16px rgba(110,231,183,0.5);
+}
+
+/* Text */
+.loader-text { text-align: center; }
+
+.loader-name {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.3rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-4) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loader-role {
+  color: var(--text-2);
+  font-size: 0.82rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Progress */
+.loader-progress-track {
+  width: 190px; height: 3px;
+  background: var(--surface);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.loader-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-4));
+  border-radius: 3px;
+  animation: progress-fill 2s ease forwards;
+}
+
+@keyframes progress-fill {
+  0%   { width: 0%; }
+  60%  { width: 75%; }
+  100% { width: 100%; }
+}
+
+/* Pills */
+.loader-pills {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 300px;
+}
+
+.loader-pill {
+  padding: 0.25rem 0.7rem;
+  background: rgba(110,231,183,0.08);
+  border: 1px solid rgba(110,231,183,0.2);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0;
+  animation: pill-appear 0.45s ease forwards;
+}
+
+@keyframes pill-appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Corners */
+.corner-tl, .corner-br {
+  position: absolute;
+  width: 70px; height: 70px;
+  border-style: solid;
+}
+
+.corner-tl {
+  top: 24px; left: 24px;
+  border-width: 1.5px 0 0 1.5px;
+  border-color: rgba(110,231,183,0.25);
+  border-radius: 4px 0 0 0;
+}
+
+.corner-br {
+  bottom: 24px; right: 24px;
+  border-width: 0 1.5px 1.5px 0;
+  border-color: rgba(167,139,250,0.25);
+  border-radius: 0 0 4px 0;
+}
+
+@media (max-width: 480px) {
+  .loader-name { font-size: 1.4rem; }
+  .loader-pills { max-width: 240px; }
+}

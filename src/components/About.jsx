@@ -96,7 +96,7 @@ const About = () => {
           </p>
 
           <div className="about__bio-cta">
-            <a href="/resource/AKASHYADAVResume.pdf" download className="btn-primary">
+            <a href="/resource/Akash_Yadav_Resume.pdf" download className="btn-primary">
               Download Resume
             </a>
             <a

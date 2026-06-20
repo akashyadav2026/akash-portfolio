@@ -135,7 +135,7 @@ const Navbar = () => {
               </ul>
 
               <a
-                href="/resource/AKASHYADAVResume.pdf"
+                href="/resource/Akash_Yadav_Resume.pdf"
                 download
                 className="btn-primary mobile-menu__cta"
                 onClick={() => setMenuOpen(false)}

@@ -89,7 +89,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div variants={ci} className="hero__btns">
-            <a href="/resource/AKASHYADAVResume.pdf" download className="btn-primary" id="hero-download-cv">
+            <a href="/resource/Akash_Yadav_Resume.pdf" download className="btn-primary" id="hero-download-cv">
               <FiDownload size={16} /> Download CV
             </a>
             <Link to="contact" smooth duration={600} offset={-80}>

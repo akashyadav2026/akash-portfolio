@@ -15,8 +15,26 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2200)
-    return () => clearTimeout(timer)
+    const minDelay = 1200 // minimum ms to show loader
+    const startTime = Date.now()
+
+    const done = () => {
+      const elapsed = Date.now() - startTime
+      const remaining = Math.max(0, minDelay - elapsed)
+      setTimeout(() => setLoading(false), remaining)
+    }
+
+    if (document.readyState === 'complete') {
+      done()
+    } else {
+      window.addEventListener('load', done, { once: true })
+      // fallback: never hang more than 6s on very slow connections
+      const fallback = setTimeout(done, 6000)
+      return () => {
+        window.removeEventListener('load', done)
+        clearTimeout(fallback)
+      }
+    }
   }, [])
 
   if (loading) return <Loader />

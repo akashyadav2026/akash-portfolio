@@ -70,10 +70,6 @@ const Navbar = () => {
             ))}
           </ul>
 
-          {/* CTA */}
-          <a href="/resource/AKASHYADAVResume.pdf" download className="btn-primary navbar__cta">
-            <FiDownload size={15} /> Resume
-          </a>
 
           {/* Hamburger */}
           <button

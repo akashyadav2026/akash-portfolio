@@ -222,8 +222,8 @@
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .navbar__links { display: none; }
-  .navbar__cta { display: none; }
+  .navbar__cta { display: none !important; }
   .navbar__hamburger { display: flex; }
 }

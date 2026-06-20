@@ -3,18 +3,18 @@ import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiHeart } from 'react-icons/
 import './Footer.css'
 
 const navItems = [
-  { label: 'Home',       to: 'home'       },
-  { label: 'About',      to: 'about'      },
+  { label: 'Home', to: 'home' },
+  { label: 'About', to: 'about' },
   { label: 'Experience', to: 'experience' },
-  { label: 'Skills',     to: 'skills'     },
-  { label: 'Projects',   to: 'projects'   },
-  { label: 'Contact',    to: 'contact'    },
+  { label: 'Skills', to: 'skills' },
+  { label: 'Projects', to: 'projects' },
+  { label: 'Contact', to: 'contact' },
 ]
 
 const socials = [
-  { icon: <FiGithub size={16} />,    href: 'https://github.com/akashyadav2026',                       label: 'GitHub',    id: 'footer-github'    },
-  { icon: <FiLinkedin size={16} />,  href: 'https://www.linkedin.com/in/akashydv26/',                 label: 'LinkedIn',  id: 'footer-linkedin'  },
-  { icon: <FiMail size={16} />,      href: 'mailto:akashydv2026@gmail.com',                           label: 'Email',     id: 'footer-email'     },
+  { icon: <FiGithub size={16} />, href: 'https://github.com/akashyadav2026', label: 'GitHub', id: 'footer-github' },
+  { icon: <FiLinkedin size={16} />, href: 'https://www.linkedin.com/in/akashydv26/', label: 'LinkedIn', id: 'footer-linkedin' },
+  { icon: <FiMail size={16} />, href: 'mailto:akashydv2026@gmail.com', label: 'Email', id: 'footer-email' },
 ]
 
 
@@ -79,9 +79,6 @@ const Footer = () => (
     <div className="footer__bottom">
       <p className="footer__copy">
         © {new Date().getFullYear()} Akash Yadav. All rights reserved.
-      </p>
-      <p className="footer__made">
-        Made with <FiHeart className="footer__heart" size={13} /> using React & Framer Motion
       </p>
     </div>
   </footer>
